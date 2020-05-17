@@ -16,14 +16,6 @@ public class spawnCars : MonoBehaviour {
         while (true) {
             GameObject carInst = Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(-85.7f, -1.87f, -3.6f), //место спавна
                 Quaternion.Euler (new Vector3 (0, -90f, 0))) as GameObject;
-            int rand = Random.Range (0, 3); //вероятность поворота
-            switch (rand) { //куда повернем?
-                case 1: carInst.AddComponent <westTrunLeft> ();
-                    break;
-                case 2: carInst.AddComponent <westTurnRight> ();
-                    break;
-                default: break;
-            }
             yield return new WaitForSeconds (Random.Range(waitSpawn, waitSpawn + 5f));
         }
     }
@@ -33,14 +25,6 @@ public class spawnCars : MonoBehaviour {
         while (true) {
             GameObject carInst = Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(39.6f, -1.87f, 3.33f), 
                 Quaternion.Euler (new Vector3 (0, 90f, 0))) as GameObject;
-            int rand = Random.Range (0, 3);
-            switch (rand) {
-                case 1: carInst.AddComponent <eastTurnLeft> ();
-                    break;
-                case 2: carInst.AddComponent <eastTurnRight> ();
-                    break;
-                default: break;
-            }
             yield return new WaitForSeconds (Random.Range(waitSpawn, waitSpawn + 5f));
         }
     }
@@ -50,14 +34,6 @@ public class spawnCars : MonoBehaviour {
         while (true) {
             GameObject carInst = Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(-5.37f, -1.87f, 53.66f), 
                 Quaternion.Euler (new Vector3 (0, 0f, 0))) as GameObject;
-            int rand = Random.Range (0, 3);
-            switch (rand) {
-                case 1: carInst.AddComponent <northTurnLeft> ();
-                    break;
-                case 2: carInst.AddComponent <northTurnRight> ();
-                    break;
-                default: break;
-            }
             yield return new WaitForSeconds (Random.Range(waitSpawn, waitSpawn + 5f));
         }
     }
@@ -67,14 +43,6 @@ public class spawnCars : MonoBehaviour {
         while (true) {
             GameObject carInst = Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(0.7f, -1.87f, -36.61f), 
                 Quaternion.Euler (new Vector3 (0, 180f, 0))) as GameObject;
-            int rand = Random.Range (0, 3);
-            switch (rand) {
-                case 1: carInst.AddComponent <southTurnLeft> ();
-                    break;
-                case 2: carInst.AddComponent <southTurnRight> ();
-                    break;
-                default: break;
-            }
             yield return new WaitForSeconds (Random.Range(waitSpawn, waitSpawn + 5f));
         }
     }
