@@ -4,10 +4,10 @@ using UnityEngine;
 
 [DisallowMultipleComponent]//только олин скрипт на объект
 public class moveObject : MonoBehaviour {
-    [SerializeField] Vector3 movePosiotion;
-    [SerializeField] float moveSpeed;
-    [SerializeField] [Range(0, 1)] float moveProgress;
-    Vector3 startPosition;
+    [SerializeField] Vector3 movePosiotion = new Vector3 (0, 0, 0);
+    [SerializeField] float moveSpeed = 0f;
+    [SerializeField] [Range(0, 1)] float moveProgress = 0;
+    Vector3 startPosition = new Vector3 (0, 0, 0);
     void Start() {
         startPosition = transform.position;
     }

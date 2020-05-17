@@ -57,15 +57,11 @@
      <Compile Include="Assets\Scripts\Fading.cs" />
      <Compile Include="Assets\Scripts\moveCar.cs" />
      <Compile Include="Assets\Scripts\moveObject.cs" />
+     <Compile Include="Assets\Scripts\rotation.cs" />
      <Compile Include="Assets\Scripts\spawnCars.cs" />
-     <Compile Include="Assets\Scripts\Turns\eastTurnLeft.cs" />
-     <Compile Include="Assets\Scripts\Turns\eastTurnRight.cs" />
-     <Compile Include="Assets\Scripts\Turns\northTurnLeft.cs" />
-     <Compile Include="Assets\Scripts\Turns\northTurnRight.cs" />
-     <Compile Include="Assets\Scripts\Turns\southTurnLeft.cs" />
-     <Compile Include="Assets\Scripts\Turns\southTurnRight.cs" />
-     <Compile Include="Assets\Scripts\Turns\westTrunLeft.cs" />
-     <Compile Include="Assets\Scripts\Turns\westTurnRight.cs" />
+     <Compile Include="Assets\Scripts\superTurn.cs" />
+     <Compile Include="Assets\Scripts\triger.cs" />
+     <Compile Include="Assets\Scripts\trigerTurn.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Unity/Cross Drive/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
