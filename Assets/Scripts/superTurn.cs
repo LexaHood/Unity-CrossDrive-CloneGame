@@ -66,7 +66,7 @@ public class superTurn : MonoBehaviour {
 
     void Start() {
         rb = GetComponent <Rigidbody> ();
-        switch (Random.Range(0, 2)) {
+        switch (Random.Range(0, 3)) {
             case 0: turnSide = side.Left; break;
             case 1: turnSide = side.Right; break;
             default: turnSide = side.Straight; break;
@@ -123,8 +123,8 @@ public class superTurn : MonoBehaviour {
     float mirrorTurnCheck() {
         if (transform.forward.x > 0) return -1f;
         else if (transform.forward.x < 0) return -1f;
-        else if (transform.forward.z > 0) return 1f;
-        else if (transform.forward.z < 0) return -1f;
+        else if (transform.forward.z > 0) return -1f;
+        else if (transform.forward.z < 0) return 1f;
         else print ("" + this.gameObject.name + "pizdec"); return 0f;
     }
 
