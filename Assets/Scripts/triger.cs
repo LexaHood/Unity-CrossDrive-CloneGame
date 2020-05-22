@@ -9,7 +9,7 @@ public class triger: MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Car") {
+        if (other.gameObject.tag == "Car" && !other.isTrigger) {
             //print(this.gameObject.name);
             other.gameObject.GetComponent<superTurn>().wayCar2(this.gameObject.name);
         }  

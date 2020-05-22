@@ -66,7 +66,7 @@ public class superTurn : MonoBehaviour {
 
     void Start() {
         rb = GetComponent <Rigidbody> ();
-        switch (Random.Range(0, 3)) {
+        switch (Random.Range(0, 4)) {
             case 0: turnSide = side.Left; break;
             case 1: turnSide = side.Right; break;
             default: turnSide = side.Straight; break;
@@ -79,7 +79,7 @@ public class superTurn : MonoBehaviour {
         if (turnOn && Mathf.Abs(tempRotation) <= 90f) 
             tempRotation += Turn();
         else if (tempRotation >= 90 && !turned) {
-            turned = true;
+            turned = true; //конец поворота
             fixedRotation();
         }
     }
@@ -101,18 +101,23 @@ public class superTurn : MonoBehaviour {
     public void wayCar2(string name) {
         if (myCarWay.checkWriteWay()) {
             myCarWay.setWay(name);
-            //print(gameObject.name + " " + myCarWay.getWay());
+            print(gameObject.name + " " + myCarWay.getWay());
         }
         else destroyCar();
+        
     }
 
     void fixedRotation() {
         float angel = transform.localRotation.eulerAngles.y;
-        //print("angel do " + angel);
         angel = Mathf.Round(angel / 10) * 10;
-        //print("angel posle " + angel);
-        //transform.Rotate(new Vector3(0, angel, 0)); 
         transform.rotation = Quaternion.Euler(new Vector3(0, angel, 0));
+        int angelInt = (int)transform.localRotation.eulerAngles.y;
+
+        print ("angelInt " + angelInt);
+        if (angelInt % 10 != 0) { 
+            angelInt = angelInt / 10;
+            transform.rotation = Quaternion.Euler(new Vector3(0, angelInt * 10, 0));
+        }
     }
 
     public void turnOnCar () {

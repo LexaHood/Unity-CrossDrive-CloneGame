@@ -11,7 +11,7 @@ public class trigerTurn : MonoBehaviour
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Car") {
+        if (other.gameObject.tag == "Car" && !other.isTrigger) {
             other.gameObject.GetComponent<superTurn>().turnOnCar();
         }  
     }
