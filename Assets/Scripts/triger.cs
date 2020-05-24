@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class triger: MonoBehaviour
 {
+    superTurn thisCar = null;
     void Start() {
         //print(this.gameObject.name);
     }
@@ -11,9 +12,12 @@ public class triger: MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Car" && !other.isTrigger) {
             //print(this.gameObject.name);
-            other.gameObject.GetComponent<superTurn>().wayCar2(this.gameObject.name);
+            thisCar = other.gameObject.GetComponent<superTurn>();
+            thisCar.wayCar2(this.gameObject.name);
         }  
     }
+
+
 
 
 }

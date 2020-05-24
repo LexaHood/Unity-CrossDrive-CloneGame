@@ -12,6 +12,7 @@ public class CollisionCars : MonoBehaviour {
            gameObject.GetComponent <moveCar> ().speed = 0f;
            other.gameObject.GetComponent <moveCar>().speed = 0f;
            gameObject.GetComponent <Rigidbody> ().AddRelativeForce (Vector3.forward * -1200);
+           gameObject.GetComponent<superTurn>().StopTurnLight();
         }
     }
 }

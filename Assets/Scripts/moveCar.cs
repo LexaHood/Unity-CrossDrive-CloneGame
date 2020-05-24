@@ -14,7 +14,11 @@ public class moveCar : MonoBehaviour {
         rb.MovePosition (transform.position - transform.forward * speed * Time.deltaTime);
     }
 
-    void Update() {
-        
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 }
