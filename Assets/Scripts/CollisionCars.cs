@@ -13,6 +13,7 @@ public class CollisionCars : MonoBehaviour {
            other.gameObject.GetComponent <moveCar>().speed = 0f;
            gameObject.GetComponent <Rigidbody> ().AddRelativeForce (Vector3.forward * -1200);
            gameObject.GetComponent<superTurn>().StopTurnLight();
+           Camera.main.GetComponent<Houston>().loseUiActivate();
         }
     }
 }

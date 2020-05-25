@@ -17,8 +17,10 @@ public class superTurn : MonoBehaviour {
     }
     side turnSide;
     Transform turnLightFront = null, turnLightBack = null;
+    Vector3 startRotation;
 
     void Start() {
+        startRotation = transform.localRotation.eulerAngles;
         switch (Random.Range(0, 4)) {
             case 0: 
                 turnSide = side.Left; 
@@ -45,7 +47,7 @@ public class superTurn : MonoBehaviour {
             tempRotation += Turn(speedRotationEtalon, mirrorTurn);
         else if (tempRotation >= 90 && !turned) {
             turned = true; //конец поворота
-            fixedRotation();
+            fixedRotation(startRotation);
             StopAllCoroutines();
             StopTurnLight();
         }
@@ -73,16 +75,15 @@ public class superTurn : MonoBehaviour {
         
     }
 
-    void fixedRotation() { //выравнивает после поворота
-        float angel = transform.localRotation.eulerAngles.y;
-        angel = Mathf.Round(angel / 10) * 10;
-        transform.rotation = Quaternion.Euler(new Vector3(0, angel, 0));
-        int angelInt = (int)transform.localRotation.eulerAngles.y;
-
-        //print ("angelInt " + angelInt);
-        if (angelInt % 10 != 0) { 
-            angelInt = angelInt / 10;
-            transform.rotation = Quaternion.Euler(new Vector3(0, angelInt * 10, 0));
+    void fixedRotation(Vector3 startRotation) { //выравнивает после поворота
+        Vector3 nowRotation = transform.localRotation.eulerAngles;
+        int angel = (int)Mathf.Abs(startRotation.y) - (int)Mathf.Abs(nowRotation.y);
+        if (angel != 90) {
+            if (turnSide == side.Right) {
+                transform.rotation = Quaternion.Euler(new Vector3(0, startRotation.y + 90, 0));
+            } else {
+                transform.rotation = Quaternion.Euler(new Vector3(0, startRotation.y - 90, 0));
+            }
         }
     }
 
@@ -125,6 +126,9 @@ public class superTurn : MonoBehaviour {
 
     void destroyCar() {
         //print(gameObject.name + " destroy");
+        if (!CollisionCars.lose) {
+            Camera.main.GetComponent<Houston>().incrementScore();
+        }  
         Destroy(gameObject);
     }
 }
